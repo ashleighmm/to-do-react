@@ -12,6 +12,11 @@ function App() {
     { text: "Build something" }
   ])
 
+  const addTodo = text => {
+    const newTodos = [...todos, {text}]
+    setTodos(newTodos)
+  }
+
   return (
     <div className="app">
       <div className="todo-list">
@@ -22,6 +27,7 @@ function App() {
             todo={todo}
           />
         ))}
+        <TodoForm addTodo={addTodo} />
       </div>
     </div>
   );

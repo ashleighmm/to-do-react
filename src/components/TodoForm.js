@@ -10,6 +10,8 @@ function TodoForm({addTodo}) {
         setValue("");
     }
 
+    
+
     return (
         <form onSubmit={handleSubmit}>
             <input 
@@ -21,3 +23,5 @@ function TodoForm({addTodo}) {
         </form>
     )
 }
+
+export default TodoForm
