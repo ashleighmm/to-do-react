@@ -1,22 +1,27 @@
 import React, { useState } from 'react';
-import Todo from './components/Todo'
 import TodoForm from './components/TodoForm'
-
+import Todo from './components/Todo'
 import './App.css';
 
-function App() {
 
-  const[todos, setTodos]= useState([
+function App() {
+  const [todos, setTodos] = useState([
     { text: "Feed the cats" },
-    { text: "Watch tutorial at lunch" },
+    { text: "Study tutorial for lunch" },
     { text: "Build something" }
-  ])
+  ]);
 
   const addTodo = text => {
-    const newTodos = [...todos, {text}]
-    setTodos(newTodos)
-  }
-
+    const newTodos = [...todos, { text }];
+    setTodos(newTodos);
+  };
+  
+  const completeTodo = index => {
+    const newTodos = [...todos];
+    newTodos[index].isCompleted = true;
+    setTodos(newTodos);
+  };
+  
   return (
     <div className="app">
       <div className="todo-list">
@@ -25,9 +30,11 @@ function App() {
             key={index}
             index={index}
             todo={todo}
+            completeTodo={completeTodo}
           />
         ))}
-        <TodoForm addTodo={addTodo} />
+        <TodoForm addTodo={addTodo} 
+ />
       </div>
     </div>
   );
